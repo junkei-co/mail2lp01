@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>補助金活用サポート | 新事業進出・ものづくり・成長加速化補助金</title>
+    <style>
+        :root {
+            --primary-color: #0072bc;
+            --secondary-color: #ff6600;
+            --accent-color: #ff9900;
+            --light-bg: #f8f9fa;
+            --dark-bg: #2c3e50;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1500x800') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .cta-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 20px auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-img {
+            height: 200px;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .feature-content {
+            padding: 20px;
+        }
+        
+        .feature-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        /* Problems Section */
+        .problems {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .problems-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .problem-item {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .problem-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        /* Solutions Section */
+        .solutions {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .solution-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .solution-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .solution-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .solution-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        /* Subsidy Info Section */
+        .subsidy-info {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .subsidy-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 15px 25px;
+            margin: 0 10px 10px;
+            background-color: var(--light-bg);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tab-content {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .tab-panel {
+            display: none;
+        }
+        
+        .tab-panel.active {
+            display: block;
+        }
+        
+        .subsidy-details {
+            margin-top: 20px;
+        }
+        
+        .subsidy-details h4 {
+            color: var(--primary-color);
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .subsidy-details ul {
+            list-style-type: none;
+            margin-left: 20px;
+        }
+        
+        .subsidy-details ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .subsidy-details ul li:before {
+            content: "✓";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .benefits-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .benefit-text h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* Case Studies Section */
+        .case-studies {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .case-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .case-card {
+            background-color: var(--light-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .case-img {
+            height: 200px;
+            background-color: #ddd;
+        }
+        
+        .case-content {
+            padding: 20px;
+        }
+        
+        .case-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .case-content .industry {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Contact Form Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-header h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .form-iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-nav {
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: var(--text-light);
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: var(--text-light);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Floating CTA Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-cta:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animated {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .problem-item, .benefit-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .problem-icon, .benefit-number {
+                margin: 0 auto 15px;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                margin: 0 0 10px;
+            }
+        }
+        
+        /* Highlight Animation */
+        .highlight {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+        
+        .highlight:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background-color: rgba(255, 153, 0, 0.3);
+            z-index: -1;
+            transition: height 0.3s ease;
+        }
+        
+        .highlight:hover:after {
+            height: 90%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">補助金活用サポート</div>
+            <a href="#contact-form" class="contact-btn">無料相談はこちら</a>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content animated">
+            <h1>売上拡大・成長加速に向けた<br><span class="highlight">補助金活用</span>を強力サポート</h1>
+            <p>新事業進出補助金・ものづくり補助金・成長加速化補助金の採択率を高める専門家集団</p>
+            <p>最大<span style="font-size: 2.5rem; font-weight: bold; color: var(--secondary-color);">9,000万円</span>の補助金獲得を徹底支援</p>
+            <a href="#contact-form" class="cta-btn">今すぐ無料相談する</a>
+        </div>
+    </section>
+    
+    <!-- For Who Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">こんな企業様におすすめです</h2>
+            <div class="features-grid animated">
+                <div class="feature-card">
+                    <div class="feature-img">🚀</div>
+                    <div class="feature-content">
+                        <h3>売上高100億円を目指したい</h3>
+                        <p>成長志向型の中小企業として飛躍的な成長を実現し、売上高100億円を目指す意欲のある経営者様</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-img">🏭</div>
+                    <div class="feature-content">
+                        <h3>生産性を革新的に向上させたい</h3>
+                        <p>自動化やDXによって生産プロセスを改善し、競争力を高めたい製造業の経営者様</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-img">🔄</div>
+                    <div class="feature-content">
+                        <h3>新事業に挑戦したい</h3>
+                        <p>既存の事業とは異なる、新市場・高付加価値事業への進出を計画している企業様</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Problems Section -->
+    <section class="problems">
+        <div class="container">
+            <h2 class="section-title">こんなお悩みはありませんか？</h2>
+            <div class="problems-list animated">
+                <div class="problem-item">
+                    <div class="problem-icon">❓</div>
+                    <div class="problem-text">
+                        <h3>補助金の種類や違いがわからない</h3>
+                        <p>複数ある補助金制度の特性や自社に最適な選択肢が分からず、機会損失している</p>
+                    </div>
+                </div>
+                <div class="problem-item">
+                    <div class="problem-icon">📝</div>
+                    <div class="problem-text">
+                        <h3>申請書類の作成が難しい</h3>
+                        <p>審査に通過するための事業計画書や申請書類の書き方がわからず、不採択になってしまう</p>
+                    </div>
+                </div>
+                <div class="problem-item">
+                    <div class="problem-icon">⏰</div>
+                    <div class="problem-text">
+                        <h3>申請準備の時間がない</h3>
+                        <p>日々の業務に追われ、GビズIDの取得から申請までの準備に十分な時間を割けない</p>
+                    </div>
+                </div>
+                <div class="problem-item">
+                    <div class="problem-icon">💡</div>
+                    <div class="problem-text">
+                        <h3>事業計画の立て方がわからない</h3>
+                        <p>補助事業要件を満たす将来性のある事業計画の策定方法や必要な数値設定が難しい</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Solutions Section -->
+    <section class="solutions">
+        <div class="container">
+            <h2 class="section-title">私たちが全力でサポートします</h2>
+            <div class="solution-cards animated">
+                <div class="solution-card">
+                    <div class="solution-icon">✅</div>
+                    <h3>最適な補助金選び</h3>
+                    <p>貴社の事業内容や計画に最も適した補助金を専門家が選定し、最大限の支援額獲得を目指します</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">📋</div>
+                    <h3>申請書類の作成代行</h3>
+                    <p>採択率を高める戦略的な事業計画書や申請書類を、経験豊富な専門家が作成します</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🔍</div>
+                    <h3>徹底した審査対策</h3>
+                    <p>審査のポイントを熟知したコンサルタントが、審査員の視点に立った書類作成をサポートします</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Subsidy Info Section -->
+    <section class="subsidy-info">
+        <div class="container">
+            <h2 class="section-title">各補助金制度の概要</h2>
+            
+            <div class="subsidy-tabs">
+                <button class="tab-btn active" data-tab="tab1">成長加速化補助金</button>
+                <button class="tab-btn" data-tab="tab2">ものづくり補助金</button>
+                <button class="tab-btn" data-tab="tab3">新事業進出補助金</button>
+            </div>
+            
+            <div class="tab-content">
+                <div id="tab1" class="tab-panel active">
+                    <h3>中小企業成長加速化補助金</h3>
+                    <p>飛躍的成長を目指す中小企業の設備投資を補助する制度です。売上高100億円超を目指す成長志向型の中小企業が対象です。</p>
+                    
+                    <div class="subsidy-details">
+                        <h4>主な特徴</h4>
+                        <ul>
+                            <li>補助上限額：5億円（補助率1/2）</li>
+                            <li>補助事業実施期間：交付決定日から24か月以内</li>
+                            <li>投資額1億円以上の大胆な設備投資を支援</li>
+                            <li>「100億宣言」を行った企業が対象</li>
+                        </ul>
+                        
+                        <h4>活用イメージ</h4>
+                        <ul>
+                            <li>工場、物流拠点などの新設・増築</li>
+                            <li>イノベーション創出に向けた設備の導入</li>
+                            <li>自動化による革新的な生産性向上</li>
+                        </ul>
+                        
+                        <h4>申請スケジュール</h4>
+                        <ul>
+                            <li>申請受付開始：2025年5月8日（木）</li>
+                            <li>申請締切：2025年6月9日（月）</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div id="tab2" class="tab-panel">
+                    <h3>ものづくり・商業・サービス補助金</h3>
+                    <p>中小企業の生産性向上、持続的な賃上げに向けて、新製品・サービスの開発や生産プロセス等の省力化に必要な設備投資等を支援する制度です。</p>
+                    
+                    <div class="subsidy-details">
+                        <h4>主な特徴</h4>
+                        <ul>
+                            <li>補助上限額：750万円～8,000万円（枠・類型による）</li>
+                            <li>補助率：1/2 または 2/3（小規模事業者等）</li>
+                            <li>革新的な製品・サービス開発または生産プロセス等の省力化のための設備投資・システム構築を支援</li>
+                        </ul>
+                        
+                        <h4>申請要件（基本要件）</h4>
+                        <ul>
+                            <li>付加価値額 年平均成長率3%増加</li>
+                            <li>給与支給総額 年平均成長率1.5%増加</li>
+                            <li>事業場内最低賃金が地域別最低賃金+30円以上</li>
+                        </ul>
+                        
+                        <h4>支援枠・類型</h4>
+                        <ul>
+                            <li>省力化（オーダーメイド）枠：最大8,000万円</li>
+                            <li>製品・サービス高付加価値化枠（通常類型）：最大1,250万円</li>
+                            <li>製品・サービス高付加価値化枠（成長分野進出類型）：最大2,500万円</li>
+                            <li>グローバル枠：3,000万円</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div id="tab3" class="tab-panel">
+                    <h3>中小企業新事業進出補助金</h3>
+                    <p>既存の事業とは異なる、新市場・高付加価値事業への進出にかかる設備投資等を支援する制度です。</p>
+                    
+                    <div class="subsidy-details">
+                        <h4>主な特徴</h4>
+                        <ul>
+                            <li>補助上限額：従業員規模に応じて2,500万円～7,000万円</li>
+                            <li>大幅賃上げ特例で最大9,000万円に上乗せ可能</li>
+                            <li>補助率：1/2（小規模事業者2/3）</li>
+                            <li>補助下限額：750万円</li>
+                        </ul>
+                        
+                        <h4>申請要件（基本要件）</h4>
+                        <ul>
+                            <li>付加価値額の年平均成長率が+4.0%以上増加</li>
+                            <li>給与支給総額の年平均成長率+2.5%以上増加など</li>
+                            <li>事業場内最低賃金が地域別最低賃金+30円以上</li>
+                            <li>一般事業主行動計画の公表等</li>
+                        </ul>
+                        
+                        <h4>活用イメージ</h4>
+                        <ul>
+                            <li>機械加工業のノウハウを活かして、新たに半導体製造装置部品の製造に挑戦</li>
+                            <li>医療機器製造の技術を活
