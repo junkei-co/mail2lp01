@@ -6,11 +6,11 @@
     <title>補助金活用サポート | 新事業進出・ものづくり・成長加速化補助金</title>
     <style>
         :root {
-            --primary-color: #0072bc;
+            --primary-color: #000080;
             --secondary-color: #ff6600;
             --accent-color: #ff9900;
             --light-bg: #f8f9fa;
-            --dark-bg: #2c3e50;
+            --dark-bg: #000050;
             --text-dark: #333;
             --text-light: #fff;
         }
@@ -40,7 +40,6 @@
             background-color: var(--primary-color);
             color: var(--text-light);
             padding: 15px 0;
-            position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
@@ -49,7 +48,7 @@
         
         .header-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
         
@@ -58,32 +57,14 @@
             font-weight: bold;
         }
         
-        .contact-btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1500x800') center/cover no-repeat;
-            height: 100vh;
+            background: linear-gradient(135deg, #000080, #000050, #0000a0);
+            height: 80vh;
             display: flex;
             align-items: center;
             text-align: center;
             color: var(--text-light);
-            margin-top: 60px;
         }
         
         .hero-content {
@@ -413,7 +394,7 @@
         /* CTA Section */
         .cta-section {
             padding: 80px 0;
-            background-color: var(--primary-color);
+            background-color: #000080;
             color: white;
             text-align: center;
         }
@@ -468,7 +449,7 @@
         footer {
             background-color: var(--dark-bg);
             color: var(--text-light);
-            padding: 40px 0;
+            padding: 20px 0;
             text-align: center;
         }
         
@@ -477,57 +458,12 @@
             margin: 0 auto;
         }
         
-        .footer-nav {
-            margin-bottom: 20px;
-        }
-        
-        .footer-nav a {
-            color: var(--text-light);
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        
-        .footer-nav a:hover {
-            text-decoration: underline;
-        }
-        
-        .social-links {
-            margin-bottom: 20px;
-        }
-        
-        .social-links a {
-            color: var(--text-light);
-            margin: 0 10px;
-            font-size: 1.5rem;
-            text-decoration: none;
-        }
-        
         .copyright {
             font-size: 0.9rem;
             opacity: 0.8;
         }
         
-        /* Floating CTA Button */
-        .floating-cta {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-        
-        .floating-cta:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-        }
+        /* スタイルを削除 */
         
         /* Animation */
         @keyframes fadeIn {
@@ -607,7 +543,6 @@
     <header>
         <div class="container header-container">
             <div class="logo">補助金活用サポート</div>
-            <a href="#contact-form" class="contact-btn">無料相談はこちら</a>
         </div>
     </header>
     
@@ -617,7 +552,6 @@
             <h1>売上拡大・成長加速に向けた<br><span class="highlight">補助金活用</span>を強力サポート</h1>
             <p>新事業進出補助金・ものづくり補助金・成長加速化補助金の採択率を高める専門家集団</p>
             <p>最大<span style="font-size: 2.5rem; font-weight: bold; color: var(--secondary-color);">9,000万円</span>の補助金獲得を徹底支援</p>
-            <a href="#contact-form" class="cta-btn">今すぐ無料相談する</a>
         </div>
     </section>
     
@@ -850,48 +784,12 @@
         </div>
     </section>
     
-    <!-- Case Studies Section -->
-    <section class="case-studies">
-        <div class="container">
-            <h2 class="section-title">支援事例</h2>
-            <div class="case-cards animated">
-                <div class="case-card">
-                    <div class="case-img"></div>
-                    <div class="case-content">
-                        <h3>A社様（製造業）</h3>
-                        <span class="industry">従業員数：45名</span>
-                        <p>ものづくり補助金を活用し、最新の複合加工機を導入。生産効率が30%向上し、新規取引先の開拓に成功しました。</p>
-                        <p><strong>補助金額：4,500万円</strong></p>
-                    </div>
-                </div>
-                <div class="case-card">
-                    <div class="case-img"></div>
-                    <div class="case-content">
-                        <h3>B社様（食品加工業）</h3>
-                        <span class="industry">従業員数：28名</span>
-                        <p>新事業進出補助金を活用し、既存の食品加工技術を活かした新ブランド立ち上げに成功。海外展開も視野に売上拡大中です。</p>
-                        <p><strong>補助金額：3,200万円</strong></p>
-                    </div>
-                </div>
-                <div class="case-card">
-                    <div class="case-img"></div>
-                    <div class="case-content">
-                        <h3>C社様（IT業）</h3>
-                        <span class="industry">従業員数：65名</span>
-                        <p>成長加速化補助金を活用し、AI技術を駆使した新サービス開発と自社オフィスの拡張を実現。売上高が前年比60%増加しました。</p>
-                        <p><strong>補助金額：2億円</strong></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container cta-content animated">
             <h2>今なら初回相談無料！</h2>
             <p>各補助金の申請締切が迫っています。お早めにご相談ください。</p>
-            <a href="#contact-form" class="cta-btn">無料相談に申し込む</a>
+            <p>↓ 下記フォームからお気軽にご相談ください ↓</p>
         </div>
     </section>
     
@@ -922,7 +820,7 @@
             <div class="form-container animated">
                 <div class="form-header">
                     <h2>無料相談フォーム</h2>
-                    <p>以下のフォームに必要事項をご記入の上、送信ください。<br>速やかに担当者よりご連絡いたします。</p>
+                    <p>以下のフォームに必要事項をご記入の上、送信ください。<br>24時間以内に担当者よりご連絡いたします。</p>
                 </div>
                 <iframe src="https://forms.gle/MGYyMGXsw3dJrgEj8" class="form-iframe"></iframe>
             </div>
@@ -932,19 +830,11 @@
     <!-- Footer -->
     <footer>
         <div class="container footer-content">
-            <div class="footer-nav">
-                <a href="#">ホーム</a>
-                <a href="#contact-form">お問い合わせ</a>
-            </div>
-
             <div class="copyright">
                 &copy; 2025 補助金活用サポート All Rights Reserved.
             </div>
         </div>
     </footer>
-    
-    <!-- Floating CTA Button -->
-    <a href="#contact-form" class="floating-cta">無料相談はこちら</a>
     
     <script>
         // Tab Functionality
@@ -963,21 +853,6 @@
                 // Add active class to corresponding panel
                 const tabId = btn.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 70,
-                    behavior: 'smooth'
-                });
             });
         });
         
